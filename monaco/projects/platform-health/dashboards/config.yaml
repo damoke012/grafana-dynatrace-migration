@@ -1,0 +1,8 @@
+configs:
+  - id: platform-cluster-health
+    type:
+      document:
+        kind: dashboard
+    config:
+      name: Platform Cluster Health
+      template: cluster-health.json

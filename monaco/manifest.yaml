@@ -1,0 +1,15 @@
+manifestVersion: "1.0"
+projects:
+  - name: platform-health
+environmentGroups:
+  - name: cuat
+    environments:
+      - name: DT_ENV_NAME          # e.g. your tenant short name
+        url:
+          value: https://DT_ENV_NAME.apps.dynatrace.com
+        auth:
+          oAuth:
+            clientId:     { name: DT_CLIENT_ID }
+            clientSecret: { name: DT_CLIENT_SECRET }
+            tokenEndpoint:
+              value: https://sso.dynatrace.com/sso/oauth2/token

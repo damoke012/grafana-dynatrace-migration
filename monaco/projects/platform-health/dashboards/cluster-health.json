@@ -1,0 +1,19 @@
+{
+  "version": 18,
+  "variables": [],
+  "tiles": {
+    "0": {
+      "type": "data",
+      "title": "Pod Status",
+      "query": "timeseries bad = sum(kube_pod_status_phase), filter:{phase==\"Failed\" or phase==\"Unknown\"}, by:{k8s.cluster.name}",
+      "visualization": "singleValue",
+      "visualizationSettings": {
+        "thresholds": [
+          { "value": 0, "color": "green", "label": "OK" },
+          { "value": 1, "color": "red" }
+        ]
+      }
+    }
+  },
+  "layouts": { "0": { "x": 0, "y": 0, "w": 6, "h": 4 } }
+}
