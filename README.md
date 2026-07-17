@@ -26,3 +26,6 @@ Everything is parameterised with env vars (`GRAFANA_URL`, `GRAFANA_TOKEN`,
 
 ## knowledge base
 See [`knowledge/`](knowledge/) — generic commands, skills, and migration memory.
+
+## workflow
+Branch-based — see [`WORKFLOW.md`](WORKFLOW.md). Housekeeping: `scripts/housekeeping.sh`.
