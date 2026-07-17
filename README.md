@@ -23,3 +23,6 @@ Everything is parameterised with env vars (`GRAFANA_URL`, `GRAFANA_TOKEN`,
 2. `scripts/metric-audit.sh`    — classify each metric REWRAP vs REMAP
 3. translate PromQL -> DQL, assemble a Dynatrace dashboard document
 4. `monaco/` — deploy the document as config-as-code
+
+## knowledge base
+See [`knowledge/`](knowledge/) — generic commands, skills, and migration memory.
