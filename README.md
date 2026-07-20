@@ -14,15 +14,26 @@ Push **nothing environment-specific** here (it's public):
 Everything is parameterised with env vars (`GRAFANA_URL`, `GRAFANA_TOKEN`,
 `DT_ENV`, `DT_METRICS_TOKEN`). Set those locally; they never live in git.
 
-## Pull a single script (no auth, works in a browser or curl)
+## Pull the toolkit (no auth — public raw URLs)
+    curl -sL https://raw.githubusercontent.com/damoke012/grafana-dynatrace-migration/main/scripts/bootstrap.sh | bash
+
+Or one script at a time:
+
     curl -sO https://raw.githubusercontent.com/damoke012/grafana-dynatrace-migration/main/scripts/grafana-export.sh
-    curl -sO https://raw.githubusercontent.com/damoke012/grafana-dynatrace-migration/main/scripts/metric-audit.sh
 
 ## Flow
-1. `scripts/grafana-export.sh`  — list dashboards, export one by UID
-2. `scripts/metric-audit.sh`    — classify each metric REWRAP vs REMAP
-3. translate PromQL -> DQL, assemble a Dynatrace dashboard document
-4. `monaco/` — deploy the document as config-as-code
+1. `scripts/grafana-export.sh`      — list dashboards, export one by UID
+2. `scripts/dashboard-inventory.sh` — panels, targets, thresholds, metric list
+3. `scripts/metric-audit.sh`        — classify each metric REWRAP vs REMAP
+4. translate PromQL -> DQL, assemble a Dynatrace dashboard document
+5. `monaco/` — deploy the document as config-as-code
+
+## Before sharing anything back
+    scripts/sanitize.sh inventory.tsv
+
+Redacts hostnames, domains, emails, IPs and any terms you list in
+`extra-terms.txt`; strips credentials outright. Writes `<file>.clean` plus
+`redaction.map` — **the map stays on the workstation.**
 
 ## knowledge base
 See [`knowledge/`](knowledge/) — generic commands, skills, and migration memory.
