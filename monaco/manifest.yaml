@@ -2,7 +2,7 @@ manifestVersion: "1.0"
 projects:
   - name: platform-health
 environmentGroups:
-  - name: cuat
+  - name: ENV_GROUP            # rename locally, e.g. dev / test / prod
     environments:
       - name: DT_ENV_NAME          # e.g. your tenant short name
         url:
